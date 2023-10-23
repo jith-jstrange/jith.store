@@ -1,0 +1,27 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "services": {
+    "magento": {
+      "image": "magento/magento-cloud-docker-php:latest",
+      "environment": {
+        "MAGENTO_DB_TYPE": "mongodb",
+        "MAGENTO_DB_DATABASE": "magento",
+        "MAGENTO_DB_HOST": "mongodb",
+        "MAGENTO_DB_PORT": "27017"
+      },
+      "volumes": [
+        "./app:/var/www/magento/app",
+        "./vendor:/var/www/magento/vendor"
+      ],
+      "ports": [
+        "80:80"
+      ]
+    },
+    "mongodb": {
+      "image": "mongo:latest",
+      "ports": [
+        "27017:27017"
+      ]
+    }
+  }
+}
